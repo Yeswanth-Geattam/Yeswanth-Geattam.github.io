@@ -60,6 +60,17 @@ background: linear-gradient(-45deg, #1a1c2e, #2d3047, #1e2137);
 background-size: 400% 400%;
 animation: gradient 15s ease infinite;
 }
+@keyframes rainbow {
+0% {
+ background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
 @keyframes gradient {
 0% {
 background-position: 0% 50%;
@@ -222,8 +233,12 @@ color: white;
 </div>
 </nav>
 <!-- Home Section -->
-<section id="home" class="section flex items-center justify-center" style="background: linear-gradient(rgba(26, 28, 46, 0.9), rgba(26, 28, 46, 0.9)), url("./img/Bright Gradient Lettering Rainbow Facebook Cover.png");">
-<div class="container mx-auto px-6">
+<section id="home" class="section flex items-center justify-center min-h-screen" style="background: linear-gradient(45deg, 
+        #ff0000, #ff8000, #ffff00, #80ff00, 
+        #00ff00, #00ff80, #00ffff, #0080ff, 
+        #0000ff, #8000ff, #ff00ff, #ff0080);
+        background-size: 1400% 1400%;
+        animation: rainbow 12s ease infinite;"><div class="container mx-auto px-6">
 <div class="max-w-4xl mx-auto text-center">
 <div class="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary shadow-lg">
 <img src="./img/Bright Gradient Lettering Rainbow Facebook Cover.png" alt="G Yeswanth" class="w-full h-full object-cover object-top">
@@ -897,6 +912,7 @@ animateSkills();
 </script>
 </body>
 </html>
+
 
 
 
