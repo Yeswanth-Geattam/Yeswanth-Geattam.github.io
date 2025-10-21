@@ -232,27 +232,423 @@ color: white;
 </div>
 </div>
 </nav>
+
 <!-- Home Section -->
-<section id="home" class="section flex items-center justify-center min-h-screen" style="background: linear-gradient(45deg, 
-        #ff0000, #ff8000, #ffff00, #80ff00, 
-        #00ff00, #00ff80, #00ffff, #0080ff, 
-        #0000ff, #8000ff, #ff00ff, #ff0080);
-        background-size: 1400% 1400%;
-        animation: rainbow 12s ease infinite;">
-<div class="container mx-auto px-6">
-<div class="max-w-4xl mx-auto text-center">
-<div class="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary shadow-lg">
-<img src="./img/photo.jpeg" alt="G Yeswanth" class="w-full h-full object-cover object-top">
-</div>
-<h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Hi, I'm G Yeswanth</h1>
-<p class="text-xl md:text-2xl text-white mb-10">Front-End Developer | B.Tech AI&DS Student</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-<a href="#Projects" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">View My Work</a>
-<a href="#contact" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-indigo-600 transition-colors whitespace-nowrap">Contact Me</a>
-</div>
-</div>
-</div>
+<section class="home" id="home">
+  <!-- Rainbow Background with Particles -->
+  <div class="rainbow-bg"></div>
+  <canvas id="hero-bg"></canvas>
+
+  <!-- Hero Content -->
+  <div class="hero-container">
+    <div class="content">
+      <h2>Hi There,<br />I'm <span>Yeswanth G</span></h2>
+      <p>I Am Into <span class="typing-text"></span></p>
+      
+      <!-- Action Buttons -->
+      <div class="button-group">
+        <a href="#Projects" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+          View My Work
+        </a>
+        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-indigo-600 transition-colors whitespace-nowrap">
+          Contact Me
+        </a>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/g-yeswanth-a61373309" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" aria-label="GitHub" href="https://github.com/yeswanth-geattam" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/yeswanth_geattam" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Profile Image -->
+    <div class="profile-image">
+      <img src="./img/photo.jpeg" alt="Yeswanth G - Web Developer" />
+    </div>
+  </div>
 </section>
+
+<!-- 💫 STYLES -->
+<style>
+  /* 🟠 Hero Section Layout */
+  .home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+    background: #f8f8f8;
+  }
+
+  /* Rainbow Background */
+  .rainbow-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      #ff0000 0%,
+      #ff8000 20%,
+      #ffff00 40%,
+      #00ff00 60%,
+      #0080ff 80%,
+      #8000ff 100%
+    );
+    background-size: 400% 400%;
+    animation: rainbowAnimation 8s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes rainbowAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Particle Canvas */
+  #hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  /* Hero Container */
+  .hero-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 3rem;
+  }
+
+  /* Content Styling - Left aligned */
+  .content {
+    flex: 1;
+    text-align: left;
+    color: #222;
+  }
+
+  .home h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    /* Original colors preserved */
+  }
+
+  .home h2 span {
+    color: #d62828; /* Original red color */
+  }
+
+  .home p {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #444; /* Original gray color */
+    margin-bottom: 2.5rem;
+  }
+
+  /* Button Group Styling - Left aligned */
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  /* Social Media Icons */
+  .socials {
+    margin-top: 1.5rem;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start;
+  }
+
+  .social-icons li {
+    display: inline-block;
+  }
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff; /* Original white background */
+    color: #333; /* Original text color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-icons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .social-icons .linkedin:hover {
+    background: #0077b5;
+    color: white;
+    border-color: #0077b5;
+  }
+
+  .social-icons .github:hover {
+    background: #333;
+    color: white;
+    border-color: #333;
+  }
+
+  .social-icons .instagram:hover {
+    background: #e4405f;
+    color: white;
+    border-color: #e4405f;
+  }
+
+  .social-icons i {
+    font-size: 1.4rem;
+  }
+
+  /* Profile Image Styling */
+  .profile-image {
+    flex: 0 0 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #d62828; /* Original red border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .profile-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Typing Animation */
+  .typing-text {
+    color: #d62828; /* Original red color */
+  }
+
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    .hero-container {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .content {
+      text-align: center;
+    }
+
+    .button-group {
+      justify-content: center;
+    }
+
+    .social-icons {
+      justify-content: center;
+    }
+
+    .profile-image {
+      flex: 0 0 auto;
+    }
+
+    .profile-image img {
+      width: 280px;
+      height: 280px;
+    }
+
+    .home h2 {
+      font-size: 2.8rem;
+    }
+
+    .home p {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .home h2 {
+      font-size: 2.2rem;
+    }
+
+    .home p {
+      font-size: 1.3rem;
+    }
+
+    .profile-image img {
+      width: 220px;
+      height: 220px;
+    }
+
+    .button-group {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button-group a {
+      width: 100%;
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .social-icons a {
+      width: 45px;
+      height: 45px;
+    }
+
+    .social-icons i {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- 💫 PARTICLE BACKGROUND SCRIPT -->
+<script>
+  const c = document.getElementById("hero-bg");
+  const ctx = c.getContext("2d");
+  let w, h, particles = [];
+
+  function resizeCanvas() {
+    w = c.width = c.offsetWidth;
+    h = c.height = c.offsetHeight;
+    particles = [];
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5),
+        vy: (Math.random() - 0.5)
+      });
+    }
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < particles.length; i++) {
+      let a = particles[i];
+      a.x += a.vx;
+      a.y += a.vy;
+      if (a.x < 0 || a.x > w) a.vx *= -1;
+      if (a.y < 0 || a.y > h) a.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, 3, 0, 6.28);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.8)"; /* White particles for contrast */
+      ctx.fill();
+
+      for (let j = i + 1; j < particles.length; j++) {
+        let b = particles[j],
+          dx = a.x - b.x,
+          dy = a.y - b.y,
+          d = Math.hypot(dx, dy);
+        if (d < 140) {
+          ctx.globalAlpha = 1 - d / 140;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.5)"; /* White connections */
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+</script>
+
+<script>
+  // Typing animation script
+  document.addEventListener('DOMContentLoaded', function() {
+    const typingText = document.querySelector('.typing-text');
+    const phrases = ['Web Development', 'Machine Learning', 'Data Science', 'AI Projects'];
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let currentPhrase = [];
+    let isDeleting = false;
+    let isEnd = false;
+
+    function type() {
+      isEnd = false;
+      typingText.innerHTML = currentPhrase.join('');
+
+      if (!isDeleting && letterIndex <= phrases[phraseIndex].length) {
+        currentPhrase.push(phrases[phraseIndex][letterIndex]);
+        letterIndex++;
+        typingText.innerHTML = currentPhrase.join('');
+      }
+
+      if (isDeleting && letterIndex >= 0) {
+        currentPhrase.pop();
+        letterIndex--;
+        typingText.innerHTML = currentPhrase.join('');
+      }
+
+      if (letterIndex === phrases[phraseIndex].length) {
+        isEnd = true;
+        isDeleting = true;
+      }
+
+      if (isDeleting && letterIndex === 0) {
+        currentPhrase = [];
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+
+      const speedUp = Math.random() * 80 + 50;
+      const normalSpeed = Math.random() * 150 + 100;
+      const time = isEnd ? 2000 : isDeleting ? speedUp : normalSpeed;
+
+      setTimeout(type, time);
+    }
+
+    type();
+  });
+</script>
+
 <!-- About Section -->
 <section id="about" class="section bg-white">
 <div class="container mx-auto px-6">
@@ -1038,38 +1434,3 @@ animateSkills();
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
