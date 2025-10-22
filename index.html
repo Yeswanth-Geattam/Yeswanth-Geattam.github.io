@@ -658,45 +658,6 @@ color: white;
 <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
 <p class="text-gray-700 mb-6">I'm G Yeswanth, a B.Tech student at Panimalar Engineering College, passionate about building impactful web applications and exploring the fields of Artificial Intelligence and Data Science.</p>
 <p class="text-gray-700 mb-8">As an aspiring Full-Stack Developer with interests in AI, Data Science and Cybersecurity, I apply my skills in React.js, Flask, and PostgreSQL to real-world projects. My academic background in AI, along with hands-on internships, helps me bridge theory with practice.</p>
-<h3 class="text-2xl font-semibold mb-4">My Skills</h3>
-<div class="space-y-4">
-<div>
-<div class="flex justify-between mb-1">
-<span class="font-medium">HTML</span>
-<span>90%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 90%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-1">
-<span class="font-medium">Front-End Development</span>
-<span>85%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 85%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-1">
-<span class="font-medium">Artificial Intelligence </span>
-<span>80%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 80%"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between mb-1">
-<span class="font-medium">Cyber Security</span>
-<span>70%</span>
-</div>
-<div class="skill-bar">
-<div class="skill-progress" style="width: 75%"></div>
-</div>
-</div>
-</div>
 </div>
 <div class="order-1 lg:order-2">
 <div class="typewriter-container bg-gray-800 rounded-lg p-6 max-w-2xl">
@@ -758,6 +719,322 @@ writeLoop();
 </div>
 </div>
 </section>
+
+<!-- Skills-->
+<style>
+    :root{
+      --accent: #7e00c2;
+      --accent-dark: #5b00a8;
+      --muted: #f5f6f8;
+      --text: #161616;
+      --border: #e1e5e9;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #ffffff;
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding: 40px 20px;
+    }
+
+    /* Tech Stack Section with Different Background */
+    .tech-stack-section {
+      background: linear-gradient(135deg, #f9f5ff 0%, #f0e6ff 100%);
+      padding: 60px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(126, 0, 194, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:28px;
+      align-items:center;
+    }
+
+    h2.section-title{
+      font-weight:700;
+      font-size:34px;
+      margin-top:6px;
+      letter-spacing:0.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* Tabs container */
+    .tabs-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+    }
+
+    .tabs{
+      background:var(--muted);
+      border-radius:10px;
+      padding:8px;
+      display:inline-flex;
+      gap:10px;
+      box-shadow:0 6px 18px rgba(17,17,17,0.06);
+      align-items:center;
+    }
+
+    .tab-btn{
+      border:0;
+      background:transparent;
+      padding:10px 22px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      color:#333;
+      transition:all .18s ease;
+      outline:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tab-btn:hover{ color:var(--accent); }
+
+    .tab-btn.active{
+      background:linear-gradient(180deg,var(--accent),var(--accent-dark));
+      color:#fff;
+      box-shadow:0 6px 18px rgba(126,0,194,0.18);
+      transform:translateY(-2px);
+    }
+
+    /* Grid */
+    .content-area{
+      width:100%;
+      display:flex;
+      justify-content:center;
+    }
+
+    .tab-panel{
+      width:100%;
+      max-width:1100px;
+      min-height:180px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap:34px 36px;
+      align-items:start;
+      padding:28px 10px;
+      transition:opacity .35s ease, transform .35s ease;
+    }
+
+    .tab-panel.hidden{
+      opacity:0; transform:translateY(12px); pointer-events:none; height:0; overflow:hidden;
+    }
+
+    .tech-item{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      text-align:center;
+      transition:transform .22s ease;
+    }
+
+    .tech-item:hover{ transform:translateY(-6px); }
+
+    .tech-icon{
+      width:96px;
+      height:96px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      box-shadow:0 6px 20px rgba(16,16,16,0.06);
+      overflow:hidden;
+    }
+
+    .tech-icon img{ width:54px; height:54px; object-fit:contain; display:block; }
+
+    .tech-label{
+      font-size:14px;
+      color:#222;
+      font-weight:500;
+      line-height:1;
+    }
+
+    /* smaller screens */
+    @media (max-width:880px){
+      h2.section-title{ font-size:28px; }
+      .tab-panel{ gap:24px; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    }
+
+    @media (max-width:520px){
+      .tabs{ padding:6px; gap:8px; }
+      .tab-btn{ padding:8px 12px; font-size:14px; }
+      .tech-icon{ width:84px; height:84px; }
+      .tech-icon img{ width:44px; height:44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tech Stack Section with Different Background -->
+  <section class="tech-stack-section">
+    <div class="wrap">
+      <h2 class="section-title">⚙️ Tech Stack</h2>
+
+      <div class="tabs-wrap">
+        <div class="tabs" role="tablist" aria-label="Tech categories">
+          <button class="tab-btn active" data-target="frontend" role="tab" aria-selected="true">Frontend</button>
+          <button class="tab-btn" data-target="backend" role="tab" aria-selected="false">Backend</button>
+          <button class="tab-btn" data-target="others" role="tab" aria-selected="false">Others</button>
+        </div>
+      </div>
+
+      <div class="content-area">
+        <!-- FRONTEND -->
+        <div id="frontend" class="tab-panel">
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+            <div class="tech-label">JavaScript</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS"></div>
+            <div class="tech-label">NextJS</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="ReactJS"></div>
+            <div class="tech-label">ReactJS</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux"></div>
+            <div class="tech-label">Redux</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"></div>
+            <div class="tech-label">TypeScript</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" alt="Material UI"></div>
+            <div class="tech-label">Material UI</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://img.icons8.com/color/96/chakra-ui.png" alt="Chakra UI"></div>
+            <div class="tech-label">Chakra UI</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
+            <div class="tech-label">HTML5</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"></div>
+            <div class="tech-label">CSS3</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"></div>
+            <div class="tech-label">Bootstrap</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="Sass"></div>
+            <div class="tech-label">Sass</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery"></div>
+            <div class="tech-label">jQuery</div>
+          </div>
+        </div>
+
+        <!-- BACKEND -->
+        <div id="backend" class="tab-panel hidden" aria-hidden="true">
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS"></div>
+            <div class="tech-label">NodeJS</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express"></div>
+            <div class="tech-label">Express</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"></div>
+            <div class="tech-label">MongoDB</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+            <div class="tech-label">Python</div>
+          </div>
+        </div>
+
+        <!-- OTHERS -->
+        <div id="others" class="tab-panel hidden" aria-hidden="true">
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+            <div class="tech-label">Git</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></div>
+            <div class="tech-label">GitHub</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"></div>
+            <div class="tech-label">VS Code</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"></div>
+            <div class="tech-label">Figma</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Tab switching with fade and ARIA update
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    function showPanel(targetId){
+      panels.forEach(p=>{
+        if(p.id === targetId){
+          p.classList.remove('hidden');
+          p.setAttribute('aria-hidden','false');
+        } else {
+          p.classList.add('hidden');
+          p.setAttribute('aria-hidden','true');
+        }
+      });
+    }
+
+    tabButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        tabButtons.forEach(b=>{
+          b.classList.remove('active');
+          b.setAttribute('aria-selected','false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+        showPanel(btn.dataset.target);
+      });
+    });
+  </script>
+
 <!-- Projects Section -->
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -787,7 +1064,15 @@ writeLoop();
             margin-right: 10px;
             font-size: 1.3rem;
         }
-    </style>
+	 #Projects {
+        background-color: #374151; 
+    	}
+
+    <.filter-btn.active {
+        background-color: #4f46e5 !important;
+        color: white !important;
+    }
+</style>
 
 </head>
 <body class="bg-gray-50">
@@ -798,10 +1083,10 @@ writeLoop();
             <p class="text-blue-600 text-center max-w-2xl mx-auto mb-12 text-lg">Explore my recent work that demonstrates my skills in web development, data science, and machine learning.</p>
             
             <div class="flex justify-center flex-wrap gap-3 mb-12">
-                <button class="filter-btn active px-5 py-2 rounded-button bg-indigo-600 text-white font-medium whitespace-nowrap transition-colors" data-filter="all">All Projects</button>
-                <button class="filter-btn px-5 py-2 rounded-button bg-gray-200 text-gray-800 font-medium whitespace-nowrap transition-colors hover:bg-gray-300" data-filter="web">Web Development</button>
-                <button class="filter-btn px-5 py-2 rounded-button bg-gray-200 text-gray-800 font-medium whitespace-nowrap transition-colors hover:bg-gray-300" data-filter="ml">Machine Learning</button>
-                <button class="filter-btn px-5 py-2 rounded-button bg-gray-200 text-gray-800 font-medium whitespace-nowrap transition-colors hover:bg-gray-300" data-filter="data">Data Science</button>
+                <button class="filter-btn active px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium whitespace-nowrap transition-colors" data-filter="all">All Projects</button>
+                <button class="filter-btn px-5 py-2 rounded-lg bg-gray-200 text-gray-800 font-medium whitespace-nowrap transition-colors" data-filter="web">Web Development</button>
+                <button class="filter-btn px-5 py-2 rounded-lg bg-gray-200 text-gray-800 font-medium whitespace-nowrap transition-colors" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn px-5 py-2 rounded-lg bg-gray-200 text-gray-800 font-medium whitespace-nowrap transition-colors" data-filter="data">Data Science</button>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8" id="Projects-grid">
@@ -860,11 +1145,11 @@ writeLoop();
                         </div>
                     </div>
                 </div>    
-           	<div class="github-button-container">
-        	<a href="https://github.com/Yeswanth-Geattam" target="_blank" class="github-button">
-            	  <i class="ri-github-fill"></i> View More on GitHub
-        	</a>
-    	    </div>
+            <div class="github-button-container">
+                <a href="https://github.com/Yeswanth-Geattam" target="_blank" class="github-button">
+                    <i class="ri-github-fill"></i> View More on GitHub
+                </a>
+            </div>
         </div>
     </section>
     <script>
@@ -876,8 +1161,15 @@ writeLoop();
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     // Update active state
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.remove('bg-indigo-600', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-800');
+                    });
+                    
                     button.classList.add('active');
+                    button.classList.remove('bg-gray-200', 'text-gray-800');
+                    button.classList.add('bg-indigo-600', 'text-white');
                     
                     // Filter projects
                     const filterValue = button.getAttribute('data-filter');
@@ -893,6 +1185,7 @@ writeLoop();
             });
         });
     </script>
+
 
 <!-- Resume Section -->
 <section id="resume" class="section bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
@@ -1141,8 +1434,9 @@ writeLoop();
 </div>
 </div>
 </section>
+
 <!-- Contact Section -->
-<section id="contact" class="section bg-white">
+<section id="contact" class="section bg-yellow-50">
 <div class="container mx-auto px-6">
 <h2 class="text-4xl font-bold text-center mb-6">Get In Touch</h2>
 <p class="text-gray-700 text-center max-w-2xl mx-auto mb-12">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!</p>
@@ -1239,7 +1533,7 @@ Send Message
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-gray-900/50 text-white py-12 border-t border-gray-800">
+<footer class="bg-black text-white py-12 border-t border-gray-800">
 <div class="container mx-auto px-6">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 <div class="md:col-span-2">
